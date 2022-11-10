@@ -5,7 +5,7 @@ body {
 
 .text {
     font-weight: 300;
-    font-size: 5rem;
+    font-size: 2rem;
 }
 
 .red {
@@ -15,7 +15,7 @@ body {
 
 .input {
     font-weight: 300;
-    font-size: 4rem;
+    font-size: 2rem;
     margin: 20px 0px;
 }
 
@@ -26,9 +26,14 @@ body {
     border: none;
     outline: none;
     background-color: #0092c3;
+    cursor: pointer;
 
-    font-size: 3rem;
+    font-size: 2rem;
     color: #fff;
+}
+
+.btn:hover{
+    opacity: 0.8;
 }
 
 .center {
