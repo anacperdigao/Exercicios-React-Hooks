@@ -14,10 +14,30 @@ const UseRef = (props) => {
     // Caso 2 - vou usar o useEffect pra ele contar as renderizações associado a um elemento especifico //
     useEffect(() => {
         count.current = count.current + 1
+        myInput2.current.focus() //Toda vez que eu digitar, vai focar no outro input
     }, [valor1])
 
-//------------------------------ Exercicio 2 --------------------------------------//
 
+//------------------------------ Exercicio 2 --------------------------------------//
+    const [valor2, setValor2] = useState("")
+
+    useEffect(() => {
+        count.current = count.current + 1
+        myInput1.current.focus() //Toda vez que eu digitar, vai focar no outro input
+    }, [valor2])
+
+
+// ---------------------------- Extras + Desafio ----------------------------------------//
+// Existe uma forma de voce usar o useRef para pegar um elemento do html, 
+// usando a propriedade ref, que eu vou usar nos dois inputs.
+    const myInput1 = useRef(null)
+    const myInput2 = useRef(null)
+    console.log(myInput1.current)
+    console.log(myInput2.current)
+
+    const mesclar = (num1, num2) => {
+        return [...num1, num2]
+    }
 
 
     return (
@@ -31,7 +51,7 @@ const UseRef = (props) => {
             <div className="center">
                 <div>
                     <span className="text">Valor: </span>
-                    <span className="text">{valor1}[</span>
+                    <span className="text">{mesclar(valor1, valor2)}[</span>
                     <span className="text red">{count.current}</span>
                     <span className="text">]</span>
                 </div>
@@ -41,8 +61,21 @@ const UseRef = (props) => {
                     className="input" 
                     value={valor1} 
                     onChange={e => setValor1(e.target.value)}
+                    ref={myInput1}
                 />
             </div>
+
+            <SectionTitle title="Exercício #02" />
+            <div className="center">
+                <input 
+                    type="text" 
+                    className="input" 
+                    value={valor2}
+                    onChange={e => setValor2(e.target.value)}
+                    ref={myInput2}
+                />
+            </div>
+
 
         </div>
     )
