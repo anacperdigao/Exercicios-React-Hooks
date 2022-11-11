@@ -17,15 +17,16 @@ const UseEffect = (props) => {
 
     useEffect(() => {
         setFatorial(calcFatorial(number))
+        setStatus(number % 2 === 0 ? "Par" : "Ímpar") // Coloquei a mudança do status no mesmo useEffect
     }, [number])
     
 //------------------------ Exercicio 02 --------------------------//
 
     const [status, setStatus] = useState('Ímpar')
 
-    useEffect(() => {
-        setStatus(number % 2 === 0 ? "Par" : "Ímpar")
-    }, [number])
+    // useEffect(() => {
+    //     setStatus(number % 2 === 0 ? "Par" : "Ímpar")
+    // }, [number])
 
 //---------------------------------------------------------------//   
 
