@@ -6,6 +6,7 @@ import Menu from '../components/layout/Menu'
 import Content from '../components/layout/Content'
 import { DataContext } from '../data/dataContext'
 import { data } from '../data/dataContext'
+import StoreProvider from '../data/Store'
 
 const App = props => {
 
@@ -13,15 +14,18 @@ const App = props => {
     // eu vou querer mudar o data futuramente em outro componente.
     const [state, setState] = useState(data)
 
+
     return (
-        <DataContext.Provider value={{state, setState}}>
-            <div className="App">
-                <Router>
-                    <Menu />
-                    <Content />
-                </Router>
-            </div>
-        </DataContext.Provider>
+        <StoreProvider>
+            <DataContext.Provider value={{state, setState}}>
+                <div className="App">
+                    <Router>
+                        <Menu />
+                        <Content />
+                    </Router>
+                </div>
+            </DataContext.Provider>
+        </StoreProvider>
     )
 }
 
