@@ -10,10 +10,11 @@ import StoreProvider from '../data/Store'
 
 const App = props => {
 
+//----------------------------------- Exercício 01 de Context ------------------------------------//    
     // Ao inves de passar no Provider o value={data} eu criei um state e vou passar o state e setState pq
     // eu vou querer mudar o data futuramente em outro componente.
     const [state, setState] = useState(data)
-
+//-----------------------------------------------------------------------------------------------//
 
     return (
         <StoreProvider>
