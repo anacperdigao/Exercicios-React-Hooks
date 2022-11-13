@@ -22,9 +22,21 @@ const UseReducer = (props) => {
             case 'adicionar2': 
                 return {...state, number: state.number + 2}
 
+            case 'MultiplicaPor7':
+                return {...state, number: state.number * 7}
+
+            case 'dividePor25':
+                return {...state, number: parseInt(state.number / 25)}
+
+            case 'adicionaN':
+                return {...state, number: state.number + action.payload }
+
+            case 'reseta':
+                return {...state, number: 0}
+
             case 'login':
-                return{ ...state, user: { name: action.payload }}
-            
+                return {...state, user: { name: action.payload }}
+
             default:
                 return state
         }
@@ -55,6 +67,10 @@ const UseReducer = (props) => {
                 <div>
                     <button className="btn" onClick={() => dispatch({type: 'login', payload: 'Maria'})}>Login</button>
                     <button className="btn" onClick={() => dispatch({type: 'adicionar2'})}>+2</button>
+                    <button className="btn" onClick={() => dispatch({type: 'MultiplicaPor7'})}>x7</button>
+                    <button className="btn" onClick={() => dispatch({type: 'dividePor25'})}>/25</button>
+                    <button className="btn" onClick={() => dispatch({type: 'adicionaN', payload: 5})}>Add 5</button>
+                    <button className="btn" onClick={() => dispatch({type: 'reseta'})}>Resetar</button>
                 </div>
             </div>
         </div>
