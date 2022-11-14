@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { memo, useMemo, useState } from 'react'
 import PageTitle from '../../components/layout/PageTitle'
 
 const UseMemo = (props) => {
@@ -54,4 +54,4 @@ const UseMemo = (props) => {
     )
 }
 
-export default UseMemo
+export default memo(UseMemo) 
